@@ -206,13 +206,13 @@ function initializeDatabase() {
 
 function createDefaultData() {
     // Create default admin user
-    const hashedPassword = hashPassword('Admin@2024');
+    const hashedPassword = hashPassword('Password123');
     db.run(`INSERT OR IGNORE INTO users (username, email, password, role, is_verified, is_active) VALUES (?, ?, ?, ?, ?, ?)`, 
         ['admin', 'admin@timetable.com', hashedPassword, 'admin', 1, 1], function(err) {
             if (err) {
                 console.log('Admin user creation error:', err);
             } else {
-                console.log('Default admin user created: username=admin, password=Admin@2024');
+                console.log('Default admin user created: username=admin, password=Password123');
             }
         });
 
@@ -1465,7 +1465,7 @@ app.use((err, req, res, next) => {
 // Start server
 app.listen(port, () => {
     console.log(`🚀 Server running at http://localhost:${port}`);
-    console.log(`🔐 Admin credentials: username: admin, password: Admin@2024`);
+    console.log(`🔐 Admin credentials: username: admin, password: Password123`);
     console.log(`💾 Database file: timetable.db`);
     console.log(`⏰ Timetable & Prayer Management System - COMPLETE FIXED VERSION`);
     console.log(`🎯 Features: Tasks, Prayers, Profile Pictures, Support Chat, Reports & Analytics, Admin Panel`);
